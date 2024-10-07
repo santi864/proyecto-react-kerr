@@ -43,3 +43,12 @@ li {
   padding: initial;
   font-size: initial;
 }
+
+a {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+a:hover {
+  color: lightblue;
+}

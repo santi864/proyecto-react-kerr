@@ -8,7 +8,7 @@ const Footer = () => {
     <div>
       <footer>
         <p>Todos los derechos reservados por copyright</p>
-        <div class="redes">
+        <div className="redes">
           <a href="https://www.instagram.com/">
             <InstagramIcon />
           </a>

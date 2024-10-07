@@ -1,20 +1,38 @@
 import "./productCard.css";
+
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 // import { Logo } from "../../../assets/logo.avif";
 
 const ProductCard = (props) => {
-  const { titulo, precio } = props;
+  const { title, price } = props;
 
   return (
-    <div className="card">
-      <img className="card-image" src="" alt="" />
-      <h2 className="card-title">{titulo}</h2>
-      <p className="card-text">{precio}</p>
-      <Button variant="contained" size="small">
-        Comprar
-      </Button>
-    </div>
+    <Card sx={{ maxWidth: 345 }}>
+      <CardMedia
+        sx={{ height: 140 }}
+        image="/static/images/cards/contemplative-reptile.jpg"
+        title="green iguana"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          Lizard
+        </Typography>
+        <Typography variant="body2" sx={{ color: "text.secondary" }}>
+          Lizards are a widespread group of squamate reptiles, with over 6,000
+          species, ranging across all continents except Antarctica
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">Share</Button>
+        <Button size="small">Learn More</Button>
+      </CardActions>
+    </Card>
   );
 };
 
