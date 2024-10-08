@@ -1,36 +1,36 @@
 import "./productCard.css";
 
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
+import { Link } from "react-router-dom";
 
-// import { Logo } from "../../../assets/logo.avif";
-
-const ProductCard = (props) => {
-  const { title, price } = props;
-
+const ProductCard = ({ title, price, imageUrl, description, id }) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        sx={{ height: 140 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
-        title="green iguana"
-      />
+    <Card sx={{ width: 350, height: 320 }}>
+      <CardMedia sx={{ height: 140 }} image={imageUrl} title="green iguana" />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Lizard
+          {title}
         </Typography>
         <Typography variant="body2" sx={{ color: "text.secondary" }}>
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          {description}
+        </Typography>
+        <Typography variant="body2" sx={{ color: "text.secondary" }}>
+          {price}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Link to={`/productDetail/${id}`}>
+          <Button variant="outlined" size="small">
+            Ver detalle
+          </Button>
+        </Link>
       </CardActions>
     </Card>
   );

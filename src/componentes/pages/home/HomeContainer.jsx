@@ -1,28 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { products } from "../../../products";
+import Home from "./Home";
+import { useParams } from "react-router-dom";
 
 const HomeContainer = () => {
   const [items, setItems] = useState([]);
 
-  const getProducts = new Promise((res, rej) => {
-    let isLoged = false;
-    if (isLoged) {
-      res(products);
-    } else {
-      rej({ message: "algo salio mal" });
-    }
-  });
+  const { categoryName } = useParams();
 
-  getProducts
-    .then((response) => {
-      console.log("entro en el then ", response);
-    })
-    .catch((error) => {
-      console.log("entro en el catch ", error);
+  useEffect(() => {
+    const filteredProducts = products.filter(
+      (product) => product.category === categoryName
+    );
+    const getProducts = new Promise((res, rej) => {
+      let isLogued = true;
+      if (isLogued) {
+        res(categoryName ? filteredProducts : products);
+      } else {
+        rej({ message: "algo salio mal" });
+      }
     });
 
-  console.log(items);
+    getProducts
+      .then((response) => {
+        setItems(response);
+      })
+      .catch((error) => {
+        console.log("entro en el catch ", error);
+      });
+  }, [categoryName]);
 
-  return items;
+  return <Home items={items} />;
 };
 
 export default HomeContainer;

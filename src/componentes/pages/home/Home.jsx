@@ -1,11 +1,9 @@
 import ProductCard from "../../common/productCard/ProductCard";
 import "./home.css";
-import HomeContainer from "./HomeContainer";
-import { useParams } from "react-router-dom";
 
 const Home = ({ items }) => {
-  const x = useParams();
-  console.log(items);
+  // const x = useParams();
+
   return (
     <div
       style={{
@@ -14,15 +12,12 @@ const Home = ({ items }) => {
         alignItems: "center",
         gap: "20px",
         flexWrap: "wrap",
+        marginTop: "50px",
       }}
     >
-      <h1>Nuestros productos</h1>
-      <ProductCard titulo="Mesa" precio="$50000" />
-      <ProductCard titulo="Silla" precio="$20000" />
-      <ProductCard titulo="Placard" precio="$60000" />
-      <ProductCard titulo="Escritorio" precio="$55000" />
-      <ProductCard titulo="Estanteria" precio="$55000" />
-      <ProductCard titulo="Gazeboo" precio="$150000" /> */
+      {items.map((item) => {
+        return <ProductCard key={item.id} {...item} />;
+      })}
     </div>
   );
 };
