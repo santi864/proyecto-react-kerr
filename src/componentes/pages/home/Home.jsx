@@ -1,9 +1,6 @@
 import ProductCard from "../../common/productCard/ProductCard";
-import "./home.css";
 
 const Home = ({ items }) => {
-  // const x = useParams();
-
   return (
     <div
       style={{

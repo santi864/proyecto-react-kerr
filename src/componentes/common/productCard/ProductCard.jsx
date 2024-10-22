@@ -1,5 +1,3 @@
-import "./productCard.css";
-
 import {
   Button,
   Card,
@@ -8,6 +6,7 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
+import "./productCard.css";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ title, price, imageUrl, description, id }) => {

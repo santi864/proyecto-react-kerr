@@ -1,40 +1,25 @@
-import CartWidget from "../../common/cartWidget/CartWidget";
-import LightModeIcon from "@mui/icons-material/LightMode";
-import "./navbar.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import CartWidget from "../../common/cartWidget/CartWidget";
+import "./navbar.css";
 import { categories } from "./categories";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [darkMode, setDarkMode] = useState(true);
-  const toggleMode = () => {
+  const tooggleMode = () => {
     setDarkMode(!darkMode);
   };
 
   return (
-    <div className={darkMode ? "container-nav-dark" : "container-nav"}>
-      <Link to={"/"}>The Workerrs</Link>
+    <div className={"container-nav"}>
+      <Link to="/">Comision-71835</Link>
       <ul>
-        {/* <li>
-          <Link>Interior</Link>
-        </li>
-        <li>
-          <Link>Exterior</Link>
-        </li>
-        <li>
-          <Link>Madera</Link>
-        </li> */}
-
         {categories.map(({ title, path }) => (
           <Link key={title} to={path}>
             {title}
           </Link>
         ))}
       </ul>
-
-      <button className="button-light" onClick={toggleMode}>
-        <LightModeIcon />
-      </button>
 
       <Link to="/cart">
         <CartWidget />

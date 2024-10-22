@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import ItemDetail from "./itemDetail";
-import { useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import ItemDetail from "./ItemDetail";
 import { products } from "../../../products";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { CartContext } from "../../../context/CartContext";
 
 const ItemDetailContainer = () => {

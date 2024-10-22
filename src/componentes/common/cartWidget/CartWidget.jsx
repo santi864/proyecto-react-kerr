@@ -5,6 +5,7 @@ import { CartContext } from "../../../context/CartContext";
 
 const CartWidget = () => {
   const { cart } = useContext(CartContext);
+
   return (
     <div>
       <Badge
